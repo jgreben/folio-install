@@ -1,0 +1,24 @@
+##
+# Host Database
+#
+# localhost is used to configure the loopback interface
+# when the system is booting.  Do not change this entry.
+##
+127.0.0.1	localhost
+127.0.0.1:5432 postgres
+255.255.255.255	broadcasthost
+::1             localhost 
+
+52.33.124.155   ld4p_dev_stardog
+
+34.213.218.191 ld4p_dev_spark_master ec2-34-213-218-191.us-west-2.compute.amazonaws.com ip-172-31-32-209.us-west-2.compute.internal 172.31.32.209 
+35.167.65.98 ld4p_dev_spark_worker1 ec2-35-167-65-98.us-west-2.compute.amazonaws.com ip-172-31-33-191.us-west-2.compute.internal 172.31.33.191 
+34.213.207.119 ld4p_dev_spark_worker2 ec2-34-213-207-119.us-west-2.compute.amazonaws.com ip-172-31-11-196.us-west-2.compute.internal 172.31.11.196 
+52.24.10.107 ld4p_dev_spark_worker3 ec2-52-24-10-107.us-west-2.compute.amazonaws.com ip-172-31-27-67.us-west-2.compute.internal  172.31.27.67
+171.67.218.26 weblogin4 weblogin.stanford.edu
+# Added by Docker Desktop
+# To allow the same kube context to work on the host and the container:
+127.0.0.1 kubernetes.docker.internal
+# End of section
+
+

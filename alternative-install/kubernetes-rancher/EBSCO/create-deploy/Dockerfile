@@ -17,12 +17,12 @@ COPY create-deploy-desc.py /usr/local/bin/folio
 COPY /install/* /usr/local/bin/folio/install/
 
 #Set environment variables for script
-ENV ADMIN_PASSWORD='admin'
+ENV ADMIN_PASSWORD  ='admin'
 ENV ADMIN_USER='diku_admin'
-ENV OKAPI_URL='http://okapi:9130'
+ENV OKAPI_URL='host.docker.internal:9130'
 ENV PURGE_DATA='true'
 ENV REF_DATA='true'
-ENV REGISTRY_URL='http://okapi:9130/_/proxy/modules'
+ENV REGISTRY_URL='http://localhost:9130/_/proxy/modules'
 ENV SAMPLE_DATA='true'
 ENV TENANT_DESC='Danish Library Technology Institute'
 ENV TENANT_ID='diku'

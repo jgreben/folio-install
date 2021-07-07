@@ -1,4 +1,4 @@
-#!/bin/sh
+  #!/bin/sh
 
 export OKAPI_URL_PY=$OKAPI_URL
 export REGISTRY_URL_PY=$REGISTRY_URL

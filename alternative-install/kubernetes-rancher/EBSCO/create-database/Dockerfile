@@ -12,6 +12,7 @@ WORKDIR /usr/local/bin/folio
 #Copy in script
 COPY create-db.sh /usr/local/bin/folio
 
+
 #Set postgres password environment variables to give to psql
 ENV PG_MASTER_USER='postgres'
 ENV PG_MASTER_USER_PASSWORD='password'
@@ -22,7 +23,7 @@ ENV PG_FOLIO_ADMIN_USER_PASSWORD='password'
 ENV PG_DATABASE_OKAPI='okapi'
 ENV PG_DATABASE_OKAPI_MODULES='okapi_modules'
 
-ENV PG_DB_HOST='remote_AWS_HOST'
+ENV PG_DB_HOST=host.docker.internal
 
 #Execute the script on container runtime
 CMD ["/usr/local/bin/folio/create-db.sh"]

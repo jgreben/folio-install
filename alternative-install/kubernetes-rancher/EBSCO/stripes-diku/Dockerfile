@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 #Prerequisites
 RUN apt-get update && apt-get install -y curl gnupg apt-transport-https ca-certificates ssl-cert
@@ -22,21 +22,22 @@ COPY build-module-descriptors.js /usr/local/bin/folio/stripes/
 COPY okapi-install.json /usr/local/bin/folio/stripes/
 COPY stripes-install.json /usr/local/bin/folio/stripes/
 COPY /tenant-assets/* /usr/local/bin/folio/stripes/tenant-assets/
+COPY output/* /usr/local/bin/folio/stripes/output/
 
 #Set ARG defaults for Stripes build
 ARG TENANT_ID=diku
-ARG OKAPI_URL=http://EPUAKHAL0027.kyiv.epam.com:31130
+ARG OKAPI_URL=http://localhost:9130
 
 #Build Stripes
-RUN yarn config set @folio:registry https://repository.folio.org/repository/npm-folio/
-RUN yarn install
-RUN yarn build --okapi $OKAPI_URL --tenant $TENANT_ID ./output
+#RUN yarn config set @folio:registry https://repository.folio.org/repository/npm-folio/
+#RUN yarn install
+#RUN yarn build --okapi $OKAPI_URL --tenant $TENANT_ID ./output
 
 #Load balancer
 FROM nginx:stable-alpine
 
 #Expose the Stripes Nginx port
-EXPOSE 3000
+EXPOSE 80 
 
 #Copy in files at this build layer
 COPY --from=0 /usr/local/bin/folio/stripes/output /usr/share/nginx/html
