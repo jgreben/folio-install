@@ -7,10 +7,10 @@ FROM maven:3.8.1-jdk-11
 #Okapi git clone and MVN Build
 RUN mkdir -p /usr/local/bin/folio
 WORKDIR /usr/local/bin/folio
-RUN git clone  -b "v4.5.2" --recursive https://github.com/folio-org/okapi.git
-#COPY okapi/ /usr/local/bin/folio/okapi/
 
-RUN cd okapi && mvn clean install -DskipTests
+#RUN git clone  -b "v4.5.2" --recursive https://github.com/folio-org/okapi.git
+#RUN cd okapi && mvn clean install -DskipTests
+COPY okapi/ /usr/local/bin/folio/okapi/
 
 #Expose ports
 EXPOSE 9130
